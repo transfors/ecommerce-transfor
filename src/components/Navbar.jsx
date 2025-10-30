@@ -2,12 +2,15 @@ import { Link, useNavigate, useLocation } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import "../index.css"
-import { useAppContext } from "../context/AppContext"
+import { useAuthContext } from "../context/AuthContext"
+import { useCartContext } from "../context/CartContext"
+
 
 function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { isAuthenticated, usuario, cart, cerrarSesion } = useAppContext()
+  const { usuario, isAuthenticated, cerrarSesion } = useAuthContext()
+  const { cart } = useCartContext()
 
   let selectValue = ""
   if (location.pathname === "/gatos") selectValue = "gatos"
@@ -34,19 +37,17 @@ function Navbar() {
     <nav
       className="navbar navbar-expand-lg fw-bold fixed-top shadow-sm"
       style={{
-        background: "linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%)", 
+        background: "linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%)",
       }}
     >
       <div className="container-fluid">
-        {/* Marca */}
         <Link
           className="navbar-brand fw-bold fs-4 nav-link-azul"
           to="/"
-          style={{ color: "#1565c0" }} 
+          style={{ color: "#1565c0" }}
         >
           e-commerce Transfor
         </Link>
-
         <button
           className="navbar-toggler text-primary rounded"
           type="button"
@@ -58,31 +59,36 @@ function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav ms-auto fs-6 align-items-center">
-            {/* Inicio */}
             <li className="nav-item">
-              <Link className="nav-link nav-link-azul" to="/">
+              <Link className={`nav-link nav-link-azul ${location.pathname === '/' ? 'active' : ''}`}
+                to="/">
                 <FontAwesomeIcon icon={faHome} />
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center ms-3">
-              <select
-                className="form-select fw-semibold border-0 fs-6 bg-transparent nav-link-azul"
-                onChange={handleSelectChange}
-                value={selectValue}
-                style={{
-                  color: "#1565c0",
-                }}
-              >
-                <option value="">Mascotas</option>
-                <option value="gatos">Gatos</option>
-                <option value="perros">Perros</option>
-              </select>
+              <div className={`nav-link nav-link-azul ${location.pathname === '/gatos' || location.pathname === '/perros' ? 'active' : ''}`}>
+                <select
+                  className="fw-semibold border-0 fs-6 bg-transparent"
+                  onChange={handleSelectChange}
+                  value={selectValue}
+                  style={{
+                    color: "#1565c0",
+                    fontWeight: location.pathname === '/gatos' || location.pathname === '/perros' ? 'bold' : 'normal'
+                  }}
+                >
+                  <option value="">Mascotas</option>
+                  <option value="gatos">Gatos</option>
+                  <option value="perros">Perros</option>
+                </select>
+              </div>
             </li>
             <li className="nav-item fs-6">
-              <Link className="nav-link nav-link-azul" to="/servicios">
+              <Link
+                className={`nav-link nav-link-azul ${location.pathname === '/servicios' ? 'active' : ''}`}
+                to="/servicios"
+              >
                 Servicios
               </Link>
             </li>
@@ -90,7 +96,7 @@ function Navbar() {
             {/* Carrito */}
             <li className="nav-item d-flex align-items-center">
               <Link
-                className="nav-link position-relative p-0 nav-link-azul"
+                className={`nav-link position-relative p-0 nav-link-azul ${location.pathname === '/carrito' ? 'active' : ''}`}
                 to="/carrito"
               >
                 <FontAwesomeIcon icon={faShoppingCart} size="lg" />
@@ -111,14 +117,14 @@ function Navbar() {
                   </span>
                   <button
                     onClick={cerrarSesion}
-                    className="btn btn-link nav-link-azul ms-2 p-0"
+                    className="btn btn-link nav-link-azul ms-2 p-0 fw-semibold"
                     style={{ textDecoration: "none" }}
                   >
                     Cerrar Sesión
                   </button>
                 </>
               ) : (
-                <Link className="nav-link nav-link-azul ms-2" to="/iniciar-sesion">
+                <Link className={`nav-link nav-link-azul ms-2 ${location.pathname === '/iniciar-sesion' ? 'active' : ''}`} to="/iniciar-sesion">
                   Iniciar Sesión
                 </Link>
               )}

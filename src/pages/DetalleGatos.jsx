@@ -8,7 +8,6 @@ const DetalleGatos = () => {
   if (!gato) {
     return (
       <>
-        {/* si quito const location aparece este texto */}
         <p className="fs-5 fw-bold text-center">No se pudo cargar la mascota</p>
         <Link to={"/gatos"}>
             <button className="btn px-5 fs-5 fw-bold bg-success-subtle rounded">

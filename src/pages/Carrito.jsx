@@ -2,18 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
 import {useNavigate} from "react-router-dom"
-import { useAppContext } from "../context/AppContext"
+import { useCartContext } from "../context/CartContext"
 
 function Carrito() {
 
-  const { cart, clearCart, removeFromCart, isAuthenticated } = useAppContext()
+  const { cart, clearCart, removeFromCart, total } = useCartContext()
 
-  const navigate = useNavigate()
-
-  // Calcular total
-  const total = cart
-    .reduce((acc, item) => acc + item.precio * item.quantity, 0)
-    .toFixed(2)
+  const navigate = useNavigate()  
 
   const irAPagar = () => {
     navigate("/pagar", { state: { cart } });

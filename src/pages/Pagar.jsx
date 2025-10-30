@@ -1,9 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { useAppContext } from "../context/AppContext"
+import { useAuthContext } from "../context/AuthContext"
+import { useCartContext } from "../context/CartContext"
+import { useEffect } from "react"
 
 function Pagar() {
 
-  const { usuario, cerrarSesion, cart, clearCart } = useAppContext()
+  const { usuario, cerrarSesion } = useAuthContext()
+  const { cart, clearCart } = useCartContext()
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -18,6 +21,14 @@ function Pagar() {
     clearCart()
     navigate("/")
   }
+
+
+
+  useEffect(() => {
+    if (!usuario) {
+      navigate("/iniciar-sesion", { state: { carrito: cart } })
+    }
+  }, [usuario])
 
   return (
     <div>

@@ -1,11 +1,11 @@
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { Outlet } from 'react-router-dom'
-import { useAppContext } from "../context/AppContext"
+import { useCartContext } from "../context/CartContext"
 
 function Layout() {
 
-  const { cart } = useAppContext()
+  const { cart } = useCartContext()
 
   return (
     <>

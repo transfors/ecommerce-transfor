@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import datosPerros from "../assets/perros.json"
-import { useAppContext } from "../context/AppContext"
+import { useCartContext } from "../context/CartContext"
 
 const Perros = () => {
     const [perros, setPerros] = useState([])
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(null)
 
-    const { addToCart } = useAppContext()
+    const { addToCart } = useCartContext()
 
     useEffect(() => {
 

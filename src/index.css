@@ -19,6 +19,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -85,6 +86,31 @@ button:focus-visible {
 
 .navbar-brand:hover {
   color: #0d47a1 !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #1565c0 !important;
+  font-weight: bold;
+  border-bottom: 2px solid #1565c0; 
+  background-color: rgba(21, 101, 192, 0.1); 
+}
+
+.nav-item select.active {
+  color: #1565c0 !important;
+  font-weight: bold !important;
+}
+
+.nav-item select.active:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.nav-item select.active option:checked {
+  background-color: rgba(21, 101, 192, 0.1);
+}
+
+.nav-item select.active option:hover {
+  background-color: rgba(21, 101, 192, 0.05);
 }
 
 /* footer */
