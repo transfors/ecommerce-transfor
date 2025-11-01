@@ -53,7 +53,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border: 2px solid #b68a8f;
 }
 button:focus,
 button:focus-visible {
@@ -86,6 +86,7 @@ button:focus-visible {
 
 .navbar-brand:hover {
   color: #0d47a1 !important;
+  font-weight: bold;
 }
 
 .navbar-nav .nav-link.active {

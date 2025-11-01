@@ -70,7 +70,7 @@ function Navbar() {
             <li className="nav-item d-flex align-items-center ms-3">
               <div className={`nav-link nav-link-azul ${location.pathname === '/gatos' || location.pathname === '/perros' ? 'active' : ''}`}>
                 <select
-                  className="fw-semibold border-0 fs-6 bg-transparent"
+                  className="nav-link nav-link-azul fw-semibold border-0 fs-6 bg-transparent"
                   onChange={handleSelectChange}
                   value={selectValue}
                   style={{
@@ -92,11 +92,15 @@ function Navbar() {
                 Servicios
               </Link>
             </li>
-
-            {/* Carrito */}
+            {usuario?.nombre === "admin" && (
+              <li>
+                <Link className={`nav-link ms-2 nav-link-azul ${location.pathname === '/agregar-gato' ? 'active' : ''}`}
+                to="/agregar-gato">Agregar Mascota</Link>
+              </li>
+            )}
             <li className="nav-item d-flex align-items-center">
               <Link
-                className={`nav-link position-relative p-0 nav-link-azul ${location.pathname === '/carrito' ? 'active' : ''}`}
+                className={`nav-link position-relative nav-link-azul ${location.pathname === '/carrito' ? 'active' : ''}`}
                 to="/carrito"
               >
                 <FontAwesomeIcon icon={faShoppingCart} size="lg" />
@@ -109,12 +113,17 @@ function Navbar() {
                   </span>
                 )}
               </Link>
-
               {isAuthenticated ? (
                 <>
                   <span className="ms-2 nav-link-azul">
                     Hola {usuario.nombre}!
                   </span>
+                  {usuario.nombre === "admin" && (
+                    <Link className={`nav-link position-relative ms-2 nav-link-azul ${location.pathname === '/dashboard' ? 'active' : ''}`}
+                      to="/dashboard">
+                      Dashboard
+                    </Link>
+                  )}
                   <button
                     onClick={cerrarSesion}
                     className="btn btn-link nav-link-azul ms-2 p-0 fw-semibold"

@@ -16,7 +16,7 @@ function Carrito() {
 
   return (
     <>
-      <h2 className="text-center mb-4 fw-bold bg-primary-subtle rounded p-2">Carrito</h2>
+      <h2 className="text-center mb-4 fw-bold bg-primary-subtle text-primary rounded p-2">Carrito</h2>
       <div className="container">
         <div className="row">
           <div className="col-12">

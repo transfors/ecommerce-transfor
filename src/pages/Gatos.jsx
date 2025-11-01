@@ -64,17 +64,19 @@ const Gatos = () => {
             </h4>
             <ul className="d-flex flex-wrap justify-content-center text-center gap-4 list-unstyled p-0">
                 {gatos.map((gato) => (
-                    <li key={gato.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded">
+                    <li key={gato.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded"
+                    style={{ width: "300px" }}>
                         <img
                             src={gato.imagen}
                             className="card-img-top rounded-4 p-2"
                             alt={gato.nombre}
-                            style={{ width: "100%", height: "350px", objectFit: "cover" }}
+                            style={{ width: "100%", height: "400px", objectFit: "cover" }}
                         ></img>
                         <br />
-                        <span className="fw-bold fs-5 mt-2">{gato.nombre}</span>
-                        <span className="fs-6">{gato.descripcion}</span>
-                        <span className="fw-bold fs-5">$ {gato.precio}</span>
+                        <span className="fw-bold fs-5 mt-2 pb-1">{gato.nombre}</span>
+                        <span className="fs-6 px-2 pb-1"><strong>Descripción: </strong>{gato.descripcion}</span>
+                        <span className="fs-6 pb-1"><strong>Categoría:</strong> {gato.categoria}</span>
+                        <span className="fw-bold fs-6 pb-1">Precio: $ {gato.precio}</span>
                         <button
                             className="btn btn-success m-1 rounded fs-6 d-block mx-auto"
                             onClick={() => addToCart(gato)}

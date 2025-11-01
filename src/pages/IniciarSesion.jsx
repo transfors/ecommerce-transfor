@@ -12,18 +12,17 @@ export default function IniciarSesion() {
 
   const manejarEnvio = (e) => {
     e.preventDefault()
-    // administrador
     if (formulario.nombre === "admin" && formulario.email === "1234@admin") {
       localStorage.setItem("authEmail", formulario.email)
       iniciarSesion("admin")
       navigate("/dashboard")
     }
-    // usuarios
     else if (
       formulario.nombre &&
       formulario.email &&
       formulario.nombre !== "admin"
     ) {
+      localStorage.setItem("authEmail", formulario.email)
       iniciarSesion(formulario.nombre)
       if (ubicacion.state?.cart) {
         navigate("/pagar", { state: { carrito: ubicacion.state.cart } })
