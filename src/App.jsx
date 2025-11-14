@@ -14,7 +14,7 @@ import Perros from './pages/Perros'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
-import FormularioGatos from './components/FormularioGatos'
+import AgregarGatos from './components/AgregarGatos'
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
                 </RutaProtegida>} />
               <Route path="/agregar-gato" element={
                 <RutaProtegida soloAdmin={true}>
-                  <FormularioGatos />
+                  <AgregarGatos />
                 </RutaProtegida>} />
               <Route path="/pagar" element={
                 <RutaProtegida>
