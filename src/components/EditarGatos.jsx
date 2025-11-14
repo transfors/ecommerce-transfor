@@ -80,12 +80,10 @@ function EditarGatos() {
         }
     }
 
-
     const cancelarEdicion = () => {
         alert('Edición cancelada')
         navigate('/gatos')
-    };
-
+    }
 
     return (
         <form onSubmit={manejarEnvio} className="mx-auto p-4 border rounded-3 shadow-sm w-100 w-md-75 w-lg-50">

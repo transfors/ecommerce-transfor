@@ -20,12 +20,12 @@ const DetalleGatos = () => {
 
   return (
     <>    
-      <h2 className="text-center fs-4 fw-bold mt-3">Detalles mascota { [id,": ", nombre] } </h2>
+      <h2 className="text-center fs-4 fw-bold mb-3">Detalles mascota { [id,": ", nombre] } </h2>
       <div className="container rounded">
         <div className="row justify-content-center">
           <div className="col-md-8">
             <div className="card shadow-sm rounded-3">
-              <div key={gato.id} className="card-body bg-info-subtle rounded">
+              <div key={gato.id} className="card-body bg-info-subtle rounded mascota">
                 <img
                   src={gato.imagen}
                   className="card-img-top img-fluid rounded"

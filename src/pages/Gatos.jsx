@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useCartContext } from "../context/CartContext"
+import { useAuthContext } from "../context/AuthContext"
 
 const Gatos = () => {
     const [gatos, setGatos] = useState([])
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(null)
+    const navigate = useNavigate()
 
     const { addToCart } = useCartContext()
+    const { usuario } = useAuthContext()
+    const esAdmin = usuario?.nombre === "admin"
 
     useEffect(() => {
 
@@ -64,8 +68,8 @@ const Gatos = () => {
             </h4>
             <ul className="d-flex flex-wrap justify-content-center text-center gap-4 list-unstyled p-0">
                 {gatos.map((gato) => (
-                    <li key={gato.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded"
-                    style={{ width: "300px" }}>
+                    <li key={gato.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded mascota"
+                        style={{ width: "300px" }}>
                         <img
                             src={gato.imagen}
                             className="card-img-top rounded-4 p-2"
@@ -92,6 +96,21 @@ const Gatos = () => {
                                 Más detalles
                             </button>
                         </Link>
+
+                        {esAdmin && (
+                            <div>
+                                <hr />
+                                <button className="btn btn-dark mb-4 bg-primary m-2 fs-6 rounded"
+                                    onClick={() =>
+                                        navigate("/editar-gatos", {
+                                            state: { gato: gato },
+                                        })
+                                    }
+                                >
+                                    Editar
+                                </button>
+                            </div>
+                        )}
                     </li>
                 ))}
             </ul>

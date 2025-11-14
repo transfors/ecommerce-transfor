@@ -15,6 +15,7 @@ import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
 import AgregarGatos from './components/AgregarGatos'
+import EditarGatos from './components/EditarGatos'
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
                 <RutaProtegida>
                   <Pagar />
                 </RutaProtegida>} />
+              <Route path="/editar-gatos" element={
+                <RutaProtegida soloAdmin={true}>
+                  <EditarGatos />
+                </RutaProtegida>}/> 
             </Route>
           </Routes>
         </CartProvider>

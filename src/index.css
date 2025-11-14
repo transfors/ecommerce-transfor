@@ -124,3 +124,18 @@ button:focus-visible {
 .footer-link:hover {
   color: #0d47a1;
 }
+
+
+.mascota {
+  /* Hace la animación suave tanto al entrar como al salir */
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+
+  /* Evita el temblor forzando renderizado por GPU */
+  will-change: transform;
+  transform-origin: center;
+}
+
+.mascota:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
