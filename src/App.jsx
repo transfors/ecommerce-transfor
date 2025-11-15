@@ -32,30 +32,30 @@ function App() {
                 <Route path='/perros' element={<Perros />} />
                 <Route path='/gatos/:id/:nombre' element={<DetalleGatos />} />
                 <Route path='/perros/:id/:nombre' element={<DetallePerros />} />
-                <Route path="/carrito" element={<Carrito />} />
-                <Route path="/iniciar-sesion" element={<IniciarSesion />} />
-                <Route path="/dashboard" element={
+                <Route path='/carrito' element={<Carrito />} />
+                <Route path='/iniciar-sesion' element={<IniciarSesion />} />
+                <Route path='/dashboard' element={
                   <RutaProtegida soloAdmin={true}>
                     <Dashboard />
                   </RutaProtegida>} />
 
-                <Route path="/pagar" element={
+                <Route path='/pagar' element={
                   <RutaProtegida>
                     <Pagar />
                   </RutaProtegida>} />
 
-                <Route path="/eliminar-gatos" element={
+                <Route path='/eliminar-gatos' element={
                   <RutaProtegida soloAdmin={true}>
                     <EliminarGatos />
                   </RutaProtegida>} />
                   
-                <Route path="/formulario-gatos" element={
+                <Route path='/formulario-gatos' element={
                     <RutaProtegida>
                       <FormularioGatos />
                     </RutaProtegida>
                   }
                 />
-                <Route path="*" element={<Navigate to="/" replace />} />
+                <Route path='*' element={<Navigate to='/' replace />} />
               </Route>
             </Routes>
           </ProductsProvider>
