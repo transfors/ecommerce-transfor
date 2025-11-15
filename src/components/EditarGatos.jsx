@@ -56,6 +56,7 @@ function EditarGatos() {
         e.preventDefault()
         if (!validarFormulario()) return
         setCargando(true)
+        
         try {
             const productoEnviar = {
                 ...gatos,
