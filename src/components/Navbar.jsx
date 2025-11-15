@@ -94,8 +94,8 @@ function Navbar() {
             </li>
             {usuario?.nombre === "admin" && (
               <li>
-                <Link className={`nav-link ms-2 nav-link-azul ${location.pathname === '/agregar-gato' ? 'active' : ''}`}
-                to="/agregar-gato">Agregar Mascota</Link>
+                <Link className={`nav-link ms-2 nav-link-azul ${location.pathname === '/formulario-gatos' ? 'active' : ''}`}
+                to="/formulario-gatos">Agregar Mascota</Link>
               </li>
             )}
             <li className="nav-item d-flex align-items-center">

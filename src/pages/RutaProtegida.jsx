@@ -1,15 +1,19 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuthContext } from '../context/AuthContext'
 
-function RutaProtegida({ children }) {
+function RutaProtegida({ children, soloAdmin = false }) {
 
-  const { isAuthenticated } = useAuthContext()
-
+  const { usuario } = useAuthContext()
   const location = useLocation()
- 
-  if (!isAuthenticated) {
-    return <Navigate to="/iniciar-sesion" state={location.state} replace />
+
+  if (!usuario) {
+    return <Navigate to="/iniciar-sesion" state={location.state} replace />;
   }
+
+  if (soloAdmin && usuario.nombre !== "admin") {
+    return <Navigate to="/productos" replace />
+  }
+ 
   return children
 }
 

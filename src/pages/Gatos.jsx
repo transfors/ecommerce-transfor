@@ -92,7 +92,7 @@ const Gatos = () => {
                             state={{ gato }}
                         >
                             <button
-                                className="btn btn-dark bg-info m-2 fs-6 rounded">
+                                className="btn text-light bg-primary m-2 fs-6 rounded">
                                 Más detalles
                             </button>
                         </Link>
@@ -100,15 +100,26 @@ const Gatos = () => {
                         {esAdmin && (
                             <div>
                                 <hr />
-                                <button className="btn btn-dark mb-4 bg-primary m-2 fs-6 rounded"
+                                <button className="btn text-light mb-4 bg-success m-2 fs-6 rounded"
                                     onClick={() =>
-                                        navigate("/editar-gatos", {
+                                        navigate("/formulario-gatos", {
                                             state: { gato: gato },
                                         })
                                     }
                                 >
                                     Editar
                                 </button>
+
+                                <button className="btn text-light mb-4 bg-danger m-2 fs-6 rounded"
+                                    onClick={() =>
+                                        navigate("/eliminar-gatos", {
+                                            state: { gato: gato },
+                                        })
+                                    }
+                                >
+                                    Eliminar
+                                </button>
+
                             </div>
                         )}
                     </li>

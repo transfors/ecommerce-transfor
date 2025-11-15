@@ -62,17 +62,18 @@ const Perros = () => {
             </h4>
             <ul className="d-flex flex-wrap justify-content-center text-center gap-4 list-unstyled p-0">
                 {perros.map((perro) => (
-                    <li key={perro.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded">
+                    <li key={perro.id} className="card shadow-lg fs-6 border-secondary-subtle bg-info-subtle rounded mascota"
+                        style= {{ width: "300px"}}>
                         <img
                             src={perro.imagen}
                             className="card-img-top rounded-4 p-2"
                             alt={perro.nombre}
-                            style={{ width: "100%", height: "350px", objectFit: "cover" }}
+                            style={{ width: "100%", height: "400px", objectFit: "cover" }}
                         ></img>
                         <br />
-                        <span className="fw-bold fs-5 mt-2">{perro.nombre}</span>
-                        <span className="fs-6">{perro.descripcion}</span>
-                        <span className="fw-bold fs-5">$ {perro.precio}</span>
+                        <span className="fw-bold fs-5 mt-2 pb-1">{perro.nombre}</span>
+                        <span className="fs-6 px-2 pb-1">{perro.descripcion}</span>
+                        <span className="fw-bold fs-6 pb-1">$ {perro.precio}</span>
                         <button
                             className="btn btn-success m-1 rounded fs-6 d-block mx-auto"
                             onClick={() => addToCart(perro)}
@@ -84,7 +85,7 @@ const Perros = () => {
                             state={{ perro }}
                         >
                             <button
-                                className="btn btn-dark bg-info m-2 fs-6 rounded">
+                                className="btn text-light bg-primary m-2 fs-6 rounded">
                                 Más detalles
                             </button>
                         </Link>

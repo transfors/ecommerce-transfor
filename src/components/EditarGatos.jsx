@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-
 function EditarGatos() {
     const { state } = useLocation()
     const navigate = useNavigate()
     const gatoOriginal = state.gato
-
 
     const [gatos, setGatos] = useState({
         ...gatoOriginal,
@@ -100,7 +98,7 @@ function EditarGatos() {
                 />
                 {errores.nombre && <div className="invalid-feedback">{errores.nombre}</div>}
             </div>
-            
+
             <div className="mb-3">
                 <label className="form-label fw-semibold">Precio:</label>
                 <input
@@ -176,4 +174,5 @@ function EditarGatos() {
 
         </form>
     )
+
 } export default EditarGatos

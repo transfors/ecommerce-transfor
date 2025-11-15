@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Carrito from './pages/Carrito'
 import Layout from './components/Layout'
 import Inicio from './pages/Inicio'
@@ -14,42 +14,50 @@ import Perros from './pages/Perros'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
-import AgregarGatos from './components/AgregarGatos'
-import EditarGatos from './components/EditarGatos'
+import { ProductsProvider } from "./context/ProductsContext"
+import EliminarGatos from './components/EliminarGatos'
+import FormularioGatos from './components/FormularioGatos'
 
 function App() {
   return (
     <>
       <AuthProvider>
         <CartProvider>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path='/' element={<Inicio />} />
-              <Route path='/servicios' element={<Servicios />} />
-              <Route path='/gatos' element={<Gatos />} />
-              <Route path='/perros' element={<Perros />} />
-              <Route path='/gatos/:id/:nombre' element={<DetalleGatos />} />
-              <Route path='/perros/:id/:nombre' element={<DetallePerros />} />
-              <Route path="/carrito" element={<Carrito />} />
-              <Route path="/iniciar-sesion" element={<IniciarSesion />} />
-              <Route path="/dashboard" element={
-                <RutaProtegida soloAdmin={true}>
-                  <Dashboard />
-                </RutaProtegida>} />
-              <Route path="/agregar-gato" element={
-                <RutaProtegida soloAdmin={true}>
-                  <AgregarGatos />
-                </RutaProtegida>} />
-              <Route path="/pagar" element={
-                <RutaProtegida>
-                  <Pagar />
-                </RutaProtegida>} />
-              <Route path="/editar-gatos" element={
-                <RutaProtegida soloAdmin={true}>
-                  <EditarGatos />
-                </RutaProtegida>}/> 
-            </Route>
-          </Routes>
+          <ProductsProvider>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path='/' element={<Inicio />} />
+                <Route path='/servicios' element={<Servicios />} />
+                <Route path='/gatos' element={<Gatos />} />
+                <Route path='/perros' element={<Perros />} />
+                <Route path='/gatos/:id/:nombre' element={<DetalleGatos />} />
+                <Route path='/perros/:id/:nombre' element={<DetallePerros />} />
+                <Route path="/carrito" element={<Carrito />} />
+                <Route path="/iniciar-sesion" element={<IniciarSesion />} />
+                <Route path="/dashboard" element={
+                  <RutaProtegida soloAdmin={true}>
+                    <Dashboard />
+                  </RutaProtegida>} />
+                <Route path="/pagar" element={
+                  <RutaProtegida>
+                    <Pagar />
+                  </RutaProtegida>} />
+                <Route path="/eliminar-gatos" element={
+                  <RutaProtegida soloAdmin={true}>
+                    <EliminarGatos />
+                  </RutaProtegida>} />
+                <Route
+                  path="/formulario-gatos"
+                  element={
+                    <RutaProtegida>
+                      <FormularioGatos />
+                    </RutaProtegida>
+                  }
+                />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Route>
+            </Routes>
+          </ProductsProvider>
         </CartProvider>
       </AuthProvider >
     </>

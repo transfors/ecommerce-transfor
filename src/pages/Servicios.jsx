@@ -5,7 +5,7 @@ function Servicios() {
     <div className="container">
       <h1 className="text-center mb-3" style={{ color: "#1565c0" }}>Servicios</h1>
       <hr style={{ borderTop: "3px solid #1565c0", width: "50px", margin: "0 auto 30px" }} />
-      
+
       <div className="text-primary fs-5" style={{ lineHeight: "1.8" }}>
         <p>
           En <strong>Adopciones Transfor</strong>, nos preocupamos por el bienestar de cada mascota y de quienes deciden darles un hogar. Por eso, ofrecemos una amplia variedad de servicios pensados para acompañarte en cada etapa de la adopción y el cuidado de tus animales.

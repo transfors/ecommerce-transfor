@@ -22,14 +22,14 @@ export default function Dashboard() {
           <h4 className="fw-bold text-primary mb-4 text-center border-bottom pb-2">Acciones:</h4>
           <div className="d-flex flex-wrap justify-content-between rounded-3">
             <Link className="text-decoration-none d-flex flex-wrap bg-success text-light p-2 justify-content-between rounded"
-              to="/agregar-gato"
+              to="/formulario-gatos"
             >
-              Agregar nueva Mascota
+              Agregar Mascota
             </Link>
-            <Link className="text-decoration-none d-flex flex-wrap bg-primary text-light p-2 justify-content-between rounded"
+            <Link className="text-decoration-none d-flex flex-wrap bg-success text-light p-2 justify-content-between rounded"
               to="/gatos"
             >
-              Ver todas las Mascotas
+              Editar/Eliminar todas las Mascotas
             </Link>
           </div>
         </div>
