@@ -14,7 +14,7 @@ import Perros from './pages/Perros'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
-import { ProductsProvider } from "./context/ProductsContext"
+import { ProductsProvider } from "./context/ProductsContext.jsx"
 import EliminarGatos from './components/EliminarGatos'
 import FormularioGatos from './components/FormularioGatos'
 
