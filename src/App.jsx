@@ -14,7 +14,7 @@ import Perros from './pages/Perros'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
-import { ProductsProvider } from "./context/ProductsContext.jsx"
+import { ProductsProvider } from './context/ProductsContext'
 import EliminarGatos from './components/EliminarGatos'
 import FormularioGatos from './components/FormularioGatos'
 
@@ -38,17 +38,18 @@ function App() {
                   <RutaProtegida soloAdmin={true}>
                     <Dashboard />
                   </RutaProtegida>} />
+
                 <Route path="/pagar" element={
                   <RutaProtegida>
                     <Pagar />
                   </RutaProtegida>} />
+
                 <Route path="/eliminar-gatos" element={
                   <RutaProtegida soloAdmin={true}>
                     <EliminarGatos />
                   </RutaProtegida>} />
-                <Route
-                  path="/formulario-gatos"
-                  element={
+                  
+                <Route path="/formulario-gatos" element={
                     <RutaProtegida>
                       <FormularioGatos />
                     </RutaProtegida>
