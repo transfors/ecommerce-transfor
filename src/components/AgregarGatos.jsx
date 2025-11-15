@@ -126,6 +126,7 @@ function AgregarGatos() {
 
   return (
     <form onSubmit={manejarEnvio} className="mx-auto p-4 border rounded-3 shadow-sm w-100 w-md-75 w-lg-50">
+      
       <h2 className="fw-bold mb-4 text-center text-primary">Agregar Mascota (gato)</h2>
 
       <div className="mb-3">
