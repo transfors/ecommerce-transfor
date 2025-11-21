@@ -20,7 +20,7 @@ export default function Dashboard() {
         </div>
         <div style={{ margin: '20px 0' }}>
           <h4 className="fw-bold text-primary mb-4 text-center border-bottom pb-2">Acciones:</h4>
-          <div className="d-flex flex-wrap justify-content-between rounded-3">
+          <div className="d-flex col-12 flex-wrap gap-3 justify-content-between rounded-3">
             <Link className="text-decoration-none d-flex flex-wrap bg-success text-light p-2 justify-content-between rounded"
               to="/formulario-gatos"
             >

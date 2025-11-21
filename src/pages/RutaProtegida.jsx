@@ -7,11 +7,11 @@ function RutaProtegida({ children, soloAdmin = false }) {
   const location = useLocation()
 
   if (!usuario) {
-    return <Navigate to="/iniciar-sesion" state={location.state} replace />;
+    return <Navigate to="/iniciar-sesion" state={location.state} replace />
   }
 
   if (soloAdmin && usuario.nombre !== "admin") {
-    return <Navigate to="/productos" replace />
+    return <Navigate to="/gatos" replace />
   }
  
   return children

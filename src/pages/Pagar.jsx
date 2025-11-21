@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext"
 import { useCartContext } from "../context/CartContext"
 import { useEffect } from "react"
+import { toast } from "react-toastify"
 
 function Pagar() {
 
@@ -11,18 +12,15 @@ function Pagar() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  // Calcular el total
   const total = cart
     .reduce((acc, item) => acc + item.precio * item.quantity, 0)
     .toFixed(2)
 
   const comprar = () => {
-    alert("¡Compra realizada con éxito!")
+    toast.success("¡Compra realizada con éxito!")
     clearCart()
     navigate("/")
   }
-
-
 
   useEffect(() => {
     if (!usuario) {
@@ -44,41 +42,7 @@ function Pagar() {
           Cerrar sesión
         </button>
         <hr />
-      </div>
-
-      {/* Ticket de compra */}
-      <div
-        style={{ width: "400px" }}
-        className="fs-5 mx-auto d-block"
-      >
-        <h2 className="text-center border-bottom pb-4">Ticket de Compra</h2>
-
-        {cart.length === 0 ? (
-          <p className="text-center mt-4">No hay productos en el carrito.</p>
-        ) : (
-          cart.map((item) => (
-            <div
-              key={item.id}
-              className="d-flex fs-6 justify-content-between mt-2 align-items-center border-bottom"
-            >
-              <img
-                src={item.imagen}
-                alt={item.nombre}
-                width="50"
-                height="60"
-                className="rounded me-3 border"
-                style={{ objectFit: "cover" }}
-              />
-              <span>{item.nombre}</span>
-              <span>$ {item.precio}</span>
-            </div>
-          ))
-        )}
-
-        <h3 className="mt-3 mb-3 fs-5 text-center mx-auto d-block">
-          <strong>Total a pagar:</strong> ${total}
-        </h3>
-      </div>
+      </div>    
 
       <div>
         <button

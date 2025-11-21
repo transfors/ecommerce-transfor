@@ -24,7 +24,7 @@ const Perros = () => {
 
             } catch (error) {
                 console.error("Error:", error);
-                setError("Hubo un problema al cargar la imagen");
+                setError("Hubo un problema al cargar la imagen")
                 setCargando(false);
             }
         }, 2000);
