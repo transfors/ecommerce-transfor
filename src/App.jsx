@@ -14,9 +14,12 @@ import Perros from './pages/Perros'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Dashboard from './pages/Dashboard'
-import { ProductsProvider } from './context/ProductsContext'
+import { ProductsProvider } from './context/GatosContext'
 import EliminarGatos from './components/EliminarGatos'
 import FormularioGatos from './components/FormularioGatos'
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 
 function App() {
   return (
@@ -24,6 +27,11 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <ProductsProvider>
+            <ToastContainer
+              autoClose={2500}
+              theme="colored"
+              position="top-right"
+            />
             <Routes>
               <Route element={<Layout />}>
                 <Route path='/' element={<Inicio />} />
@@ -48,12 +56,12 @@ function App() {
                   <RutaProtegida soloAdmin={true}>
                     <EliminarGatos />
                   </RutaProtegida>} />
-                  
+
                 <Route path='/formulario-gatos' element={
-                    <RutaProtegida>
-                      <FormularioGatos />
-                    </RutaProtegida>
-                  }
+                  <RutaProtegida>
+                    <FormularioGatos />
+                  </RutaProtegida>
+                }
                 />
                 <Route path='*' element={<Navigate to='/' replace />} />
               </Route>

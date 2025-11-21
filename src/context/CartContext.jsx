@@ -40,8 +40,7 @@ export function CartProvider({ children }) {
 
     // Calcular total
     const total = cart
-        .reduce((acc, item) => acc + item.precio * item.quantity, 0)
-        .toFixed(2)
+        .reduce((acc, item) => acc + item.precio * item.quantity, 0).toFixed(2)     
 
     const value = {
         cart,

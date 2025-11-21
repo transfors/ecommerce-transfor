@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext"
+import { toast } from "react-toastify"
 
 export default function IniciarSesion() {
 
   const { iniciarSesion } = useAuthContext()
+  
   const navigate = useNavigate()
   const ubicacion = useLocation()
 
@@ -12,6 +14,7 @@ export default function IniciarSesion() {
 
   const manejarEnvio = (e) => {
     e.preventDefault()
+    
     if (formulario.nombre === "admin" && formulario.email === "1234@admin") {
       localStorage.setItem("authEmail", formulario.email)
       iniciarSesion("admin")
@@ -30,9 +33,8 @@ export default function IniciarSesion() {
         navigate("/")
       }
     } else {
-      alert(
-        "Credenciales de administrador incorrectas. Usa: admin / 1234@admin"
-      )
+
+      toast.warn("Credenciales de administrador incorrectas. Usa: admin / 1234@admin")
     }
   }
 

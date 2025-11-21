@@ -40,6 +40,7 @@ export function AuthProvider({ children }) {
         iniciarSesion,
         cerrarSesion,
         isAuthenticated: !!usuario, 
+        esAdmin: usuario?.nombre === "admin",
     }
 
     return (
